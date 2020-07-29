@@ -1,5 +1,7 @@
 # w251_hw12 by abhisha@berkeley.edu
 
+## Part 1
+
 This homework is based off: https://github.com/MIDS-scaling-up/v2/tree/master/week12/hw
 
 The current setup for the Vms in the /etc/hosts file looks like this
@@ -106,4 +108,13 @@ Finally, we see we were able to configure the 300 GB distributed disk space util
 [root@gpfs1 gpfsfpo]# df -h .
 Filesystem      Size  Used Avail Use% Mounted on
 gpfsfpo         300G  2.6G  298G   1% /gpfs/gpfsfpo
+```
+
+## Part 2
+
+For downloading AUS Gutenberg - About 4k books, 1GB of text, it took around 2 hours to download all the books
+
+```
+[root@gpfs1 gpfsfpo]# du -sh aus_gutemberg_dataset/
+1.1G    aus_gutemberg_dataset/
 ```
