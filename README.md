@@ -99,3 +99,11 @@ The below snippet shows that the nsd disks are configured on gpfs1
  gpfs2nsd        0A1C51105F21CEF3   /dev/xvde       gpfs2                    server node
  gpfs3nsd        0A1C51115F21CEF4   /dev/xvde       gpfs3                    server node
 ```
+
+Finally, we see we were able to configure the 300 GB distributed disk space utilizing all 3 nodes' individual disks
+
+```
+[root@gpfs1 gpfsfpo]# df -h .
+Filesystem      Size  Used Avail Use% Mounted on
+gpfsfpo         300G  2.6G  298G   1% /gpfs/gpfsfpo
+```
