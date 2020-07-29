@@ -3,6 +3,7 @@
 This homework is based off: https://github.com/MIDS-scaling-up/v2/tree/master/week12/hw
 
 The current setup for the Vms in the /etc/hosts file looks like this
+
 ```
 127.0.0.1               localhost.localdomain localhost
 10.28.81.14             gpfs1
@@ -11,6 +12,7 @@ The current setup for the Vms in the /etc/hosts file looks like this
 ```
 
 We were able to successfully provision the GPFS servers on the 3 VMs
+
 ```
 [root@gpfs1 ~]# mmgetstate -a
 
@@ -39,6 +41,7 @@ GPFS cluster information
 ```
 
 Disk structure on the main node
+
 ```
 [root@gpfs1 ~]# fdisk -l
 
@@ -83,4 +86,16 @@ Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 
+```
+
+The below snippet shows that the nsd disks are configured on gpfs1
+
+```
+[root@gpfs1 ~]# mmlsnsd -m
+
+ Disk name       NSD volume ID      Device          Node name or Class       Remarks
+-------------------------------------------------------------------------------------------
+ gpfs1nsd        0A1C510E5F21CEF3   /dev/xvde       gpfs1                    server node
+ gpfs2nsd        0A1C51105F21CEF3   /dev/xvde       gpfs2                    server node
+ gpfs3nsd        0A1C51115F21CEF4   /dev/xvde       gpfs3                    server node
 ```
