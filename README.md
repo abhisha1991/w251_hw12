@@ -20,4 +20,11 @@ We were able to successfully provision the GPFS servers on the 3 VMs
        2      gpfs2            active
        3      gpfs3            active
 
+[root@gpfs1 ~]# mmgetstate -a
+
+ Node number  Node name        GPFS state
+-------------------------------------------
+       1      gpfs1            active
+       2      gpfs2            active
+       3      gpfs3            active
 ```
