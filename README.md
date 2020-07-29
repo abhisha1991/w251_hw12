@@ -1,5 +1,7 @@
 # w251_hw12 by abhisha@berkeley.edu
 
+This homework is based off: https://github.com/MIDS-scaling-up/v2/tree/master/week12/hw
+
 The current setup for the Vms in the /etc/hosts file looks like this
 ```
 127.0.0.1               localhost.localdomain localhost
