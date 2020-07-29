@@ -20,11 +20,20 @@ We were able to successfully provision the GPFS servers on the 3 VMs
        2      gpfs2            active
        3      gpfs3            active
 
-[root@gpfs1 ~]# mmgetstate -a
+[root@gpfs1 ~]# mmlscluster
 
- Node number  Node name        GPFS state
--------------------------------------------
-       1      gpfs1            active
-       2      gpfs2            active
-       3      gpfs3            active
+GPFS cluster information
+========================
+  GPFS cluster name:         gpfs1.gpfs1
+  GPFS cluster id:           17502596657464854352
+  GPFS UID domain:           gpfs1.gpfs1
+  Remote shell command:      /usr/bin/ssh
+  Remote file copy command:  /usr/bin/scp
+  Repository type:           CCR
+
+ Node  Daemon node name  IP address   Admin node name  Designation
+-------------------------------------------------------------------
+   1   gpfs1             10.28.81.14  gpfs1            quorum-manager-perfmon
+   2   gpfs2             10.28.81.16  gpfs2            quorum-perfmon
+   3   gpfs3             10.28.81.17  gpfs3            quorum-manager-perfmon
 ```
