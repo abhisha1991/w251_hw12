@@ -118,3 +118,5 @@ For downloading AUS Gutenberg - About 4k books, 1GB of text, it took around 2 ho
 [root@gpfs1 gpfsfpo]# du -sh aus_gutemberg_dataset/
 1.1G    aus_gutemberg_dataset/
 ```
+
+For downloading the reddit data, we partitioned the 163 URL files into 3 folders (url1, url2, url3). Each of these folders will be processed by their corresponding GPFS Vm, ie, gpfs1 will process all the urls stored under "url1" and so on. Further, within each main url folder (such as url1), we partitioned 3 sub folders within it (named 1, 2 and 3). The idea for further partitioning is to be able to parallelize the processing within a single Vm. Each Vm can run multiple threads (in this case, we run 3 threads that process the urls under sub folders 1, 2 and 3 respectively). We used a custom crawler script (see this repository) to run these parallel threads to process contents under the sub folders (1, 2, 3) for a given main folder like url1.
