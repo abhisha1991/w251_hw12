@@ -136,7 +136,7 @@ In total we had 9 threads that were running (3 per machine). We started the pyth
 ```
 It is important to run the processes in the background so that they continue running even if the ssh connection disconnects.
 
-At the time of this writing, there were around 25 MB worth of data that was written to the output "reddit" folder
+At the time of this writing, there were around 25 MB worth of data that was written to the output "reddit" folder.
 ```
 [root@gpfs1 ~]# du -sh /gpfs/gpfsfpo/reddit
 25M     /gpfs/gpfsfpo/reddit
@@ -154,4 +154,20 @@ We can monitor the number of files in the output "reddit" folder like this:
 [root@gpfs1 reddit]#  ls -1 | wc -l
 3466
 ```
-The number of files visible to the 3 machines should be the same because they share the same output destination folder
+The number of files visible to the 3 machines should be the same because they share the same output destination folder.
+
+#### How much disk space is used after step 4?
+
+It has not run completely till now, around 25 MB worth of data has been written to disk (approx 3466 files). When this completes, we expect 50 GB worth of data would be written to the disk. This is because we know the total size of the reddit data is 50 GB (around 10M web pages) as per these [docs](https://github.com/chiphuyen/lazynlp#reddit-urls)
+
+#### Did you parallelize the crawlers in step 4? If so, how?
+
+Yes, we did parallelize the data processing in the 3 machines. However, the parallelization is NOT optimal in its current form. We can further improve it by running even more number of threads and / or increasing the number of machines in the GPFS cluster.
+
+#### Describe the steps to de-duplicate the web pages you crawled.
+
+We will have to use the steps given [here](https://github.com/chiphuyen/lazynlp#step-5-remove-duplicated-webpages) AFTER we have downloaded the data. We will unlikely be able to get to this in time because the downloading of pages will take a lot of time (several days). But roughly speaking, we need to call ```lazynlp.estimate_overlap``` giving the source file list and destination file list where we expect to find the overlap. This will give us a rough idea of how much overlap we are seeing in our downloaded dataset. Once we have a good idea of this, we need to call ```lazynlp.filter_files``` to filter out our duplicate files. 
+
+#### Submit the list of files you that your LazyNLP spiders crawled (ls -la).
+
+The file has been attached to this repo.
